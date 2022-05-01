@@ -1,0 +1,73 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&subset=korean');
+
+:root {
+	--gray: #ccc; 
+	--green: #69D1A2;
+	--red: #ED7470;
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal; }
+table, img, fieldset { border:none; }
+table { border-collapse:collapse; border-spacing:0; width:100%; table-layout:fixed;/* 테이블 넓이값 고정 */ word-break:break-all;/* 글씨 넘칠씨 자동 줄바꿈. */}
+ul, ol, li { list-style:none; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+caption,th, td {text-align:left;}
+abbr,acronym { border:0; }
+input, select, textarea, form img { vertical-align:middle; }
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display: block }
+img, picture, video, canvas, svg {display: block; max-width:100%;}
+
+/* FONT */
+body, input, select, textarea { font:100% "Noto Sans KR", "맑은 고딕", "Malgun Gothic", Dotum, "돋움", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", Ngothic, sans-serif; color:#222; font-weight:400;/*  letter-spacing:-0.5px; */}
+
+html, body {font-size: 16px;}
+
+@media only all and (max-width:759px) {/*기본 759 + 패딩 15 이하 모바일 */
+	html,body {font-size:14px;}
+}
+
+a, a:active, a:hover {text-decoration:none}
+button {border:0;background-color:transparent;cursor:pointer;transition: all .3s;}
+
+/* Form Style */
+input[type="text"], input[type="password"], input.text, select, textarea {border: none; vertical-align:middle; box-sizing:border-box; padding:0px 20px; background:#fff; color:#222; }
+input[type="text"]:hover, input[type="password"]:hover, input.text:hover, select:hover, textarea:hover {transition:all 0.3s; border: none;}
+input[type="text"]:focus, input[type="password"]:focus, input.text:focus, select:focus, textarea:focus {transition:all 0.3s; border: none; box-shadow:none; color:#222; outline: none;}
+input[type="text"].error, input[type="password"].error, input.text.error, select.error, textarea.error {border-color:#e60039;}
+textarea {resize:none;}
+::-ms-clear, ::-ms-reveal {display: none;}
+input::placeholder {color:#ccc;}
+
+
+
+.clearFix:after {content:""; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+
+
+/* Btn Style */
+.addBtn {background-color: #fff; color: var(--green);}
+.addBtn.active {background-color: var(--green); color: #fff;}
+.addBtn:hover {background-color: var(--green); color: #fff;}
+.delBtn {background-color: #fff; color: var(--red);}
+.delBtn.active {background-color: var(--red); color: #fff;}
+.delBtn:hover {background-color: var(--red); color: #fff;}
+
+
+/* layer & Mask */
+#mask { display: none; position: fixed; background: #000; z-index: 99999; opacity: .6; top: 0; bottom: 0; left: 0; right: 0; transition: all .3s;}
+
+.layer {display: none; /*display: flex;*/ position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100000; align-items: center; justify-content: center;}
+.layer .layerInner {padding: 0 25px; }
+.layer .layerInner .layerBox { background-color: #fff; padding: 15px 25px; width: 300px; border-radius: 5px; box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 70%);}
+.layer .layerBox .layerTxtArea {font-size: 1.25rem; color: #222; line-height: 1.5; text-align: center;}
+.layer .layerBox .layerTxtArea span {font-weight: bold;}
+.layer .layerBox .layerBtnArea {display: flex; justify-content: space-between; align-items: center; gap: 0 15px; margin-top: 30px;}
+.layer .layerBox .layerBtnArea button {width: 50%; font-size: 1rem; color: #222; line-height: 2; border-radius: 3px; border: 1px solid var(--red); transition: all .3s;}
+.layer .layerBox .layerBtnArea button:hover {box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 30%);}
+.layer .layerBox .layerBtnArea button:last-child {background-color: var(--red); color: #fff;}
