@@ -6,7 +6,6 @@ let isNewBox = false;
 //event
 addBtn.addEventListener('click', addToDoBox);
 
-
 //function
 function addToDoBox() {
     const weekList = ['일','월','화','수','목','금','토'];
@@ -18,7 +17,7 @@ function addToDoBox() {
     <div class="box">
         <div class="title">
             <div class="in">
-                <input class="toDoListTit autoFocus" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" />
+                <input class="toDoListTit autoFocus" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" autofocus />
                 <span class="date">${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${weekList[date.getDay()]}요일 </span>
                 <span class="listCount">할 일이 <i>0</i>개 남았습니다.</span>
             </div>
@@ -57,4 +56,18 @@ function addToDoBox() {
     }
 
     isNewBox = true;
+}
+
+function toDoBtnClick(btn) {
+    if(!isNewBox) {
+        btn.classList.toggle('addToDo'); 
+        btn.classList.toggle('exitToDo'); 
+        if (!btn.classList.contains('addToDo')) {
+            btn.previousElementSibling.style.display = 'block';
+        } else {
+            btn.previousElementSibling.style.display = 'none';
+        }
+    } else {
+        alert('할 일 박스가 존재합니다. \n제목을 입력 후 Enter를 눌러주세요.');
+    }
 }

@@ -100,3 +100,35 @@ function draw() {
         });
     }
 }
+
+//enter 입력 시 이벤트
+function enterCheck() {
+    const target = window.event.target;
+    const keyCode = window.event.keyCode;
+    // enter = 13
+
+    //to do list Box의 경우
+    if(keyCode == 13 && target.classList.contains('toDoListTit')){
+        // localstorage안에 값을 넣기 위한 준비
+        const toDoBox = {
+            "date": target.nextElementSibling.innerText, 
+            "title": target.value,
+            "toDo" : []
+        };
+        myToDoLists.push(toDoBox);
+        setLocalstorage();
+        draw();
+        isNewBox = false;
+    }
+    //to do list list의 경우
+    if(keyCode == 13 && target.classList.contains('newList')){
+        const no = target.closest('.boxLabel').htmlFor.replace('box','');
+        const toDoList = {
+            "text": target.value,
+            "complete":false
+        };
+        myToDoLists[no].toDo.push(toDoList);
+        setLocalstorage();
+        draw();
+    }
+}
